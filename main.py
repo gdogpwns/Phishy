@@ -5,16 +5,16 @@ URL = "http://phish.in/api/v1"
 
 
 def get(param):
-    #Pulls .json from Phish.in
+    # Pulls .json from Phish.in
     response = requests.get((URL + param))
-    #Converts byte type to list
+    # Converts byte type to list
     info = response.json()
     print (info)
-    #Gets only the data list within info
+    # Gets only the data list within info
     data = info.get("data")
-    #Gets only the tracks list within data
+    # Gets only the tracks list within data
     tracks = data.get("tracks")
-    # An incriment to see if the track exists
+    # An increment to see if the track exists
     i = 0
     mp3_list = []
     while True:
@@ -37,7 +37,10 @@ def date_search():
     day_input = input("Day: ")
     year_input = input("Year: ")
     date = (year_input + "-" + month + "-" + day_input)
-
     get("/shows/" + date)
 
 date_search()
+
+def current_song(song, json_url):
+    # TODO - all the things
+    True
